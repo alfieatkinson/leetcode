@@ -26,7 +26,7 @@ class Solution:
         print(f"Satisfied customers with ability used in minute 1: {satisfied}.")
 
         for i in range(1, n - minutes + 1):
-            print(f"Customers: {customers[i:i+minutes]}")
+            #print(f"Customers: {customers[i:i+minutes]}")
             if grumpy[i - 1] == 0:
                 satisfied -= customers[i - 1]
             if grumpy[i + minutes - 1] == 0:
