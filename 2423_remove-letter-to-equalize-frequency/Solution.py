@@ -1,3 +1,5 @@
+from statistics import mode
+
 class Solution:
     def equalFrequency(self, word: str) -> bool:
         if len(word) > 26:
@@ -6,17 +8,17 @@ class Solution:
         char_freq = {char: word.count(char) for char in word}
         print(char_freq)
 
-        freq_freq = {freq: list(char_freq.values()).count(freq) for freq in char_freq.values()}
-        print(freq_freq)
+        freqs = list(char_freq.values())
+        print(freqs)
 
-        if len(freq_freq) == 1:
-            if list(freq_freq.keys())[0] == 1:
-                return True
-            return False
-        if len(freq_freq) > 2:
-            return False
-        if 1 in [key * value for key, value in freq_freq.items()]:
-            return True
+        #freq_freq = {freq: list(char_freq.values()).count(freq) for freq in char_freq.values()}
+        #print(freq_freq)
+
+        m = mode(freqs)
+        print(mode)
+
+
+
         return False
     
 tests = ["abcc", "aazz", "abccdd", "abc", "abbcc", "cbccca"]
