@@ -10,7 +10,9 @@ class Solution:
         #print(freq_freq)
 
         if len(freq_freq) == 1:
-            return True
+            if list(freq_freq.keys())[0] == 1:
+                return True
+            return False
         if len(freq_freq) > 2:
             return False
         if 1 in freq_freq.values():
