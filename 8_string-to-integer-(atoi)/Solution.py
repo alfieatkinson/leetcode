@@ -1,5 +1,8 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
+        if s == '':
+            return 0
+
         s = s.strip()
         n = ''
 
