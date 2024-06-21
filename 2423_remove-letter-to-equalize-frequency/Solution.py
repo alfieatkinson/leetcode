@@ -4,10 +4,10 @@ class Solution:
             return False
         
         char_freq = {char: word.count(char) for char in word}
-        #print(char_freq)
+        print(char_freq)
 
         freq_freq = {freq: list(char_freq.values()).count(freq) for freq in char_freq.values()}
-        #print(freq_freq)
+        print(freq_freq)
 
         if len(freq_freq) == 1:
             if list(freq_freq.keys())[0] == 1:
@@ -15,11 +15,11 @@ class Solution:
             return False
         if len(freq_freq) > 2:
             return False
-        if 1 in freq_freq.values():
+        if 1 in [key * value for key, value in freq_freq.items()]:
             return True
         return False
     
-tests = ["abcc", "aazz", "abccdd", "abc", "abbcc"]
+tests = ["abcc", "aazz", "abccdd", "abc", "abbcc", "cbccca"]
 
 S = Solution()
 
