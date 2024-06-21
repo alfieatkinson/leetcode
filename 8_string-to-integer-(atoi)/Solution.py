@@ -1,9 +1,10 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
+        s = s.strip()
+
         if s == '':
             return 0
 
-        s = s.strip()
         n = ''
 
         if s[0] == '-':
@@ -14,8 +15,7 @@ class Solution:
 
         for i in s:
             if i.isnumeric():
-                if int(i) > 0:
-                    n += i
+                n += i
             else:
                 break
         
@@ -23,7 +23,7 @@ class Solution:
             n = "0"
 
         if int(n) < -2**31: return -2**31
-        elif int(n) > 2**31 - 1: return 2**31
+        elif int(n) > 2**31 - 1: return 2**31 - 1
         else: return int(n)
             
 S = Solution()
