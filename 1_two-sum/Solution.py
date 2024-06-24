@@ -5,10 +5,18 @@ class Solution:
         @param target (int): the target sum.
         @return indices (list[int]): the indices of the two numbers that sum to target.
         """
-        for i in range(len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+        n = len(nums)
+        hashmap = {}
+
+        # Create a hashmap from the nums list elements and their indices.
+        for i in range(n):
+            hashmap[nums[i]] = i
+
+        # Iterate through the nums list and check if the complement needed to get to target is in the hashmap.
+        for i in range(n):
+            x = target - nums[i]
+            if x in hashmap and hashmap[x]!= i:
+                return [i, hashmap[x]]
                 
 S = Solution()
 
