@@ -6,13 +6,15 @@ class TreeNode:
         self.right = right
 
 class Solution:
+    def __init__(self):
+        self.total = 0 # A cumulative sum of all the nodes
+
     def bstToGst(self, root: TreeNode) -> TreeNode:
         if root:
-            left = self.bstToGst(root.left) # First recur on the left side
-            right = self.bstToGst(root.right) # Next recur on the right side
-            if right:
-                root.val += right.val
-
+            self.bstToGst(root.right) # First recur on the left side
+            self.total += root.val # Add to the cumulative sum total
+            root.val = self.total # Set the node value to the current total
+            self.bstToGst(root.left) # Next recur on the right side
         return root
 
 # Testing
