@@ -31,8 +31,6 @@ class Solution:
 
         return makeLinkedList(vals)
 
-
-
 def makeLinkedList(l: list[int]) -> ListNode:
     l = list(reversed(l))
     node = None
