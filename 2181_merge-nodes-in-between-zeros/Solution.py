@@ -16,7 +16,7 @@ class Solution:
         while p1.node.next is not None:
             p2.node = p2.node.next
             if p2.node.val == 0:
-                p1.node.val = cumulative_sum
+                p2.node.val = cumulative_sum
                 cumulative_sum = 0
 
                 p1.node.next = p2.node
@@ -25,7 +25,7 @@ class Solution:
                 continue
             cumulative_sum += p2.node.val
 
-        return head
+        return head.next
 
 def makeLinkedList(l: list[int]) -> ListNode:
     l = list(reversed(l))
